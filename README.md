@@ -3,6 +3,10 @@ GDB pretty printing for Nim language
 Currently, this script requires patching Nim compiler using the following pull request:
 https://github.com/nim-lang/Nim/pull/6240
 
+## Usage 
+* Copy nim.py from this project next to executable you plan to debug. Next 
+after loading executable, issue the following command in gdb: `python execfile("nim.py")`
+
 ## Supported features:
 * Type pretty printing, using ``whatis`` gdb command 
 * New gdb command `$` for invoking Nim's `$` stringify operator
