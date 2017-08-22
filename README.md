@@ -1,5 +1,5 @@
 # Nim-gdb
-GDB pretty printing for Nim language
+GDB pretty printing for Nim language.
 Currently, this script requires patching Nim compiler using the following pull request:
 https://github.com/nim-lang/Nim/pull/6240
 
