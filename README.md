@@ -11,7 +11,7 @@ Copy nim.py (or nim3.py in case of python 3 installed) from this project next to
 issue the following command in gdb: `python execfile("nim.py")` 
 
 ### Python 3
-If you system has python3 installed, use the 2to3 version like so: `python exec(open("nim3.py").read())`
+If your gdb got linked against python3, use the 2to3 version like so: `python exec(open("nim3.py").read())`
 
 ## Supported features:
 * Type pretty printing, using ``whatis`` gdb command 
