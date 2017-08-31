@@ -4,8 +4,14 @@ Currently, this script requires patching Nim compiler using the following pull r
 https://github.com/nim-lang/Nim/pull/6240
 
 ## Usage 
-Copy nim.py from this project next to executable you plan to debug. Next after loading executable, 
-issue the following command in gdb: `python execfile("nim.py")`
+
+Build your nim file with something like: `nim --d:debug --lineDir:on --debuginfo --debugger:native c yourfile.nim`
+
+Copy nim.py (or nim3.py in case of python 3 installed) from this project next to executable you plan to debug. Next after loading executable, 
+issue the following command in gdb: `python execfile("nim.py")` 
+
+### Python 3
+If you system has python3 installed, use the 2to3 version like so: `python exec(open("nim3.py").read())`
 
 ## Supported features:
 * Type pretty printing, using ``whatis`` gdb command 
