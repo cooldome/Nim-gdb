@@ -90,7 +90,7 @@ class DollarPrintFunction (gdb.Function):
         func_value = gdb.lookup_global_symbol(func, gdb.SYMBOL_FUNCTIONS_DOMAIN).value()
         return func_value(arg.address)
 
-    raise "No suitable Nim $ operator found for type: " + arg.type.name
+    raise ValueError("No suitable Nim $ operator found for type: " + arg.type.name)
 
   def invoke(self, arg):
     return self.invoke_static(arg)
@@ -166,7 +166,7 @@ class NimEnumPrinter:
   def __init__(self, val):
     self.val = val
     if self.reprEnum is None:
-      raise "reprEnum function symbol is not found, can't display Nim enum. reprEnum was likely removed by dead code elimination"
+      raise ValueError("reprEnum function symbol is not found, can't display Nim enum. reprEnum was likely removed by dead code elimination")
 
   def display_hint(self):
     return 'enum'
@@ -261,9 +261,9 @@ class NimObjectPrinter:
         descriminant_node = son
         break
     if descriminant_node is None: 
-      raise "Can't find union descriminant field in object RTI"
+      raise ValueError("Can't find union descriminant field in object RTI")
 
-    if descriminant_node is None: raise "Can't find union field in object RTI"
+    if descriminant_node is None: raise ValueError("Can't find union field in object RTI")
     union_node = descriminant_node['sons'][int(self.val[prev_field])].dereference()
     union_val = self.val[field]
 
@@ -272,7 +272,7 @@ class NimObjectPrinter:
         if str(f2.name) == union_node['name'].string("utf-8", "ignore"):
            return (str(f2.name), union_val[f1][f2])
  
-    raise "RTI is absent or incomplete, can't find union definition in RTI"
+    raise ValueError("RTI is absent or incomplete, can't find union definition in RTI")
 
 
 ################################################################
