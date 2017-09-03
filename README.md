@@ -1,11 +1,10 @@
 # Nim-gdb
 GDB pretty printing for Nim language.
-Currently, this script requires patching Nim compiler using the following pull request:
-https://github.com/nim-lang/Nim/pull/6240
+Currently, this script requires latest devel Nim compiler installed manually from:
+https://github.com/nim-lang/Nim
 
 ## Usage 
-Copy nim.py from this project next to executable you plan to debug. Next after loading executable, 
-issue the following command in gdb: `python execfile("nim.py")`
+Compile your nim project with `nim c -d:debug --debugger:native your_project.nim` command. Copy nim.py next to your project's executable you have just built. Start gdb debugging session with `gdb your_project`. In gdb command line run the following command to debug helpers: `python execfile("nim.py")`
 
 ## Supported features:
 * Type pretty printing, using ``whatis`` gdb command 
