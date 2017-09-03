@@ -152,7 +152,7 @@ class NimStringPrinter:
       l = int(self.val['Sup']['len'])
       return self.val['data'][0].address.string("utf-8", "ignore", l)
     else:
-     return "<nil>"
+      return "<nil>"
 
 
 ################################################################
