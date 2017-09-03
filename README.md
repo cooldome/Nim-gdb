@@ -5,6 +5,11 @@ https://github.com/nim-lang/Nim
 
 ## Usage 
 Compile your nim project with `nim c -d:debug --debugger:native your_project.nim` command. Copy nim.py next to your project's executable you have just built. Start gdb debugging session with `gdb your_project`. In gdb command line run the following command to debug helpers: `python execfile("nim.py")`
+Copy nim.py (or nim3.py in case of python 3 installed) from this project next to executable you plan to debug. Next after loading executable, 
+issue the following command in gdb: `python execfile("nim.py")` 
+
+### Python 3
+If your gdb is linked against python3, use the 2to3 version like so: `python exec(open("nim3.py").read())`
 
 ## Supported features:
 * Type pretty printing, using ``whatis`` gdb command 
