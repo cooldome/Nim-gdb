@@ -53,11 +53,10 @@ class NimTypePrinter(gdb.types.TypePrinter):
         return result
 
       rti = NimTypePrinter.rti(tname)
-      if rti is None: 
-        return None
+      if rti is not None: 
+        return str(rti['name'])
 
-      return str(rti['name'])
-
+      return None
 
 nimobjfile = gdb.current_objfile() or gdb.objfiles()[0]
 nimobjfile.type_printers = []
