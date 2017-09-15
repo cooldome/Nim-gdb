@@ -1,6 +1,6 @@
 # Nim-gdb
 GDB pretty printing for Nim language.
-Currently, this script requires latest devel Nim compiler installed manually from:
+Currently, this script requires Nim 0.17.2 or devel version of compiler installed manually from:
 https://github.com/nim-lang/Nim
 
 ## Usage 
